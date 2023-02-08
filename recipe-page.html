@@ -9,41 +9,25 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <header>
-        <h1 id="recipe-name" class="text-6xl font-bold"></h1>
-        <img id="recipe-img" src="">
+    <header class=" grid cols-1 justify-center">
+        <div>
+            <h1 id="recipe-name" class="text-8xl font-bold p-5 text-center"></h1>
+        </div>
+        <div></div>
+            <img id="recipe-img" class="bg-cover" src="" rel="Picture of Meal">
+        </div>
     </header>
 
-    <main>
-        <div>
-            <h1 class="text-4xl font-bold">Ingredients:</h1>
+    <main class="grid cols-1 justify-center">
+        <div class="border-red-600 rounded-lg border-8 shadow-xl shadow-black m-8">
+            <h1 class="text-6xl font-bold border-4 border-b-black text-center p-4">Ingredients:</h1>
             <ul id="ingredient-list">
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
-                <li class="ingredient-item text-xl"></li>
+                
             </ul>
         </div>
-        <div>
-            <h1 class="text-4xl font-bold">Step by Step Instructions:</h1>
+        <div class="border-blue-600 rounded-lg border-8 shadow-xl shadow-black m-8">
+            <h1 class="text-6xl font-bold border-4 border-b-black text-center p-4">Step by Step Instructions:</h1>
             <ul id="instructions">
-
             </ul>
         </div>  
     </main>

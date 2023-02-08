@@ -16,17 +16,24 @@ function recipeDisplay(){
         var selectedMeal = data.meals[0];
         recipeName.textContent = selectedMeal.strMeal;
         recipeImg.src = selectedMeal.strMealThumb;
+        //takes instructions and splits them in to different items
         var instructionsString = selectedMeal.strInstructions;
         var instructionsArray = instructionsString.split('.');
-                
+        
+        //builds ingredient list items and appends to page        
         for(var i = 0; i < 20; i++){
-            ingredientItem[i].textContent = selectedMeal[`strMeasure` + (i + 1) ] + " " + selectedMeal[`strIngredient` + (i + 1)];
+            if(selectedMeal[`strIngredient` + (i + 1)]){
+            var ingredientListItem = document.createElement('li');
+            ingredientListItem.textContent = selectedMeal[`strMeasure` + (i + 1) ] + " " + selectedMeal[`strIngredient` + (i + 1)];
+            ingredientListItem.classList.add('text-4xl', 'border-2', 'p-2');
+            ingredientList.appendChild(ingredientListItem);}
         }
 
-        for(var i = 0; i < instructionsArray.length; i++){
+        //builds instruction list item and appends to page
+        for(var i = 0; i < (instructionsArray.length - 1); i++){
             var instructionListItem = document.createElement('li');
             instructionListItem.textContent = instructionsArray[i];
-            instructionListItem.classList.add('text-xl');
+            instructionListItem.classList.add('text-4xl', 'border-2', 'p-2');
             instructions.appendChild(instructionListItem);
         }
 
