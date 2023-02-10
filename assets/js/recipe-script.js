@@ -2,51 +2,55 @@ var mealID = localStorage.getItem('mealID');
 var recipeName = document.getElementById('recipe-name');
 var recipeImg = document.getElementById('recipe-img');
 var ingredientList = document.getElementById('ingredient-list');
-var ingredientArray = ['strIngredient1', 'strIngredient2', 'strIngredient3', 'strIngredient4','strIngredient5', 'strIngredient6', 'strIngredient7', 'strIngredient8', 'strIngredient9', 'strIngredient10', 'strIngredient11', 'strIngredient12','strIngredient13', 'strIngredient14', 'strIngredient15', 'strIngredient16','strIngredient17', 'strIngredient18', 'strIngredient19', 'strIngredient20',];
+var ingredientItem = document.querySelectorAll('.ingredient-item');
+var instructions = document.getElementById('instructions');
+
+
+
+//loads recipe info using mealID stored in localStorage
 
 var tableBodyEl = document.getElementById('table-body')
 
 var ingredients = [];
 
 //main function to display data. Includes fetching, parsing, and displaying
+
 function recipeDisplay(){
     //fetch recipe ingredients/picture/name
     fetch("https://www.themealdb.com/api/json/v2/9973533/lookup.php?i=" + mealID)
-        .then(function(response){
-            return response.json()})
-        .then(async function(data){
-            console.log(data);
-            recipeName.textContent = data.meals[0].strMeal;
-            recipeImg.src = data.meals[0].strMealThumb;
 
-            //get ingredients and add them to array ingredients to poll nutrition data
-            console.log(`Parsing recipe ingredient list:`)
-            for(const key in data.meals[0]){
-                if(key.includes("strIngredient") && data.meals[0][key] !== "" ){
-                    ingredients.push(data.meals[0][key])
-                    console.log(`${key}: ${data.meals[0][key]}`)
-                }
-            }
-            //get nutrition data and display
-            var nutritionData = await pollNutritionData(ingredients)
-            console.log(`Nutrition Data:`)
-            console.log(nutritionData)
-            nutritionDisplay(nutritionData)
+.then(function(response){
+    return response.json()})
+    .then(function(data){
+        console.log(data);
+        var selectedMeal = data.meals[0];
+        recipeName.textContent = selectedMeal.strMeal;
+        recipeImg.src = selectedMeal.strMealThumb;
+        //takes instructions and splits them in to different items
+        var instructionsString = selectedMeal.strInstructions;
+        var instructionsArray = instructionsString.split('.');
+        
+        //builds ingredient list items and appends to page        
+        for(var i = 0; i < 20; i++){
+            if(selectedMeal[`strIngredient` + (i + 1)]){
+            var ingredientListItem = document.createElement('li');
+            ingredientListItem.textContent = selectedMeal[`strMeasure` + (i + 1) ] + " " + selectedMeal[`strIngredient` + (i + 1)];
+            ingredientListItem.classList.add('text-4xl', 'border-2', 'p-2');
+            ingredientList.appendChild(ingredientListItem);}
+        }
 
-            
-            //display ingredient list
-            for(var i = 0; i < ingredientArray.length; i++){
-                var currentIngredient = ingredientArray[i];
-                if(data.meals[0].currentIngredient !== ""){
-                    // console.log(currentIngredient);
-                    var recipeListItem = document.createElement('li');
-                    recipeListItem.textContent = data.meals[0].currentIngredient;
-                    recipeListItem.append(ingredientList);
-                }
-            }
-        })
+        //builds instruction list item and appends to page
+        for(var i = 0; i < (instructionsArray.length - 1); i++){
+            var instructionListItem = document.createElement('li');
+            instructionListItem.textContent = instructionsArray[i];
+            instructionListItem.classList.add('text-4xl', 'border-2', 'p-2');
+            instructions.appendChild(instructionListItem);
+        }
+
+    })
 }
 
+ 
 
 async function pollNutritionData(ingredients){
     console.log(`Polling nutrition data:`)
@@ -93,6 +97,7 @@ function nutritionDisplay(data){
 recipeDisplay();
 
     
+
 
 
 
