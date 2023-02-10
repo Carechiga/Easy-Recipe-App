@@ -1,0 +1,22 @@
+<div><select id="dropdown">
+
+</select></div>
+
+<script>
+  async function hello() {
+
+    let dropdown = document.querySelector("#dropdown");
+    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
+      .then((response) => response.json())
+      .then((data) => {console.log(data);
+        data.categories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category.strCategory;
+        option.innerHTML = category.strCategory;
+        dropdown.append(option)
+      });
+      });
+  }
+
+hello();
+</script>
