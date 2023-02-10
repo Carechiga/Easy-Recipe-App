@@ -11,10 +11,25 @@
 <header class="bg-blue-900 p-4 flex justify-between items-center border-double">
     <a href="/index.html" class="text-white text-xl ml-1 font-bold">Digital Cookbook</a>
     <!-- Search Bar could go here -->
+    <div class="search-container bg-gray-300 rounded-lg ml-5 mr-5 p-1 flex items-center">
+       
+        <h1 class="text-lg font-medium">Recipe Search</h1>
+        <input class="ml-2 px-5 py-3 rounded-tl-lg rounded-bl-lg mr-2" type="text" id="search-input" placeholder="Enter search term">
+        <input class="mr-2 py-3" type="text" id="filters-input" placeholder="Enter filters">
+        <button class="bg-blue-900 px-5 py-3 rounded-tr-lg rounded-br-lg cursor-pointer text-white" id="search-button">Search</button>
+        <div id="search-results"></div>
+        <div id="results-container" class="mt-5">
+            <ul class="list-item">
+              <!-- Search results will be inserted here -->
+            </ul>
+        </div>
+          
+    </div>
     <!-- Enter Search Bar -->
     <ul class="flex">
         <li><a class="text-white text-lg mr-3 font-medium" href="/results-page.html">Search Results</a></li>
-        <li><a class="text-white text-lg mr-3 font-medium" href="/results-page.html">Last Recipe</a></li>
+        <li><a class="text-white text-lg mr-3 font-medium" href="/recipe-page.html">Random Recipe</a></li>
+        <li><a class="text-white text-lg mr-3 font-medium" href="/recipe-page.html">Last Recipe</a></li>
     </ul>
 </header>
 <body>
