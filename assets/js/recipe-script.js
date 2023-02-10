@@ -6,9 +6,19 @@ var ingredientItem = document.querySelectorAll('.ingredient-item');
 var instructions = document.getElementById('instructions');
 
 
+
 //loads recipe info using mealID stored in localStorage
+
+var tableBodyEl = document.getElementById('table-body')
+
+var ingredients = [];
+
+//main function to display data. Includes fetching, parsing, and displaying
+
 function recipeDisplay(){
+    //fetch recipe ingredients/picture/name
     fetch("https://www.themealdb.com/api/json/v2/9973533/lookup.php?i=" + mealID)
+
 .then(function(response){
     return response.json()})
     .then(function(data){
@@ -39,5 +49,55 @@ function recipeDisplay(){
 
     })
 }
+
  
-    recipeDisplay();
+
+async function pollNutritionData(ingredients){
+    console.log(`Polling nutrition data:`)
+    //create search query URL
+    var len = ingredients.length;
+    for (i = 0 , x = 1; i<len-1; i++, x++){
+        ingredients.splice(i+x,0," : ");
+    }
+    query = ingredients.join("")
+    var url = 'https://api.api-ninjas.com/v1/nutrition?query='+query;
+    console.log(`poll URL created: ${url}`)
+    //get nutritional data
+    response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            'X-Api-Key': 'Rd5DJlBsPPGEuoAatIFHdw==yShsY7nfSzo4wXLP',
+            'Content-Type': 'application/json',
+            },
+        });
+    data = response.json()
+    return data
+}
+
+//displays nutrition data by creating and populating table elements
+function nutritionDisplay(data){
+    console.log(`Displaying nutrition table data...`)
+    i = 1
+    for (const keys in data){
+        rowEl = document.createElement('tr')
+        numEl = document.createElement('th')
+        numEl.textContent = i;
+        i++
+        rowEl.append(numEl);
+        for(const key in data[keys]){
+            dataEl = document.createElement('td')
+            dataEl.textContent = data[keys][key]
+            rowEl.append(dataEl)
+            dataEl.className = "text-center"
+        }
+        tableBodyEl.append(rowEl)
+    }
+}
+    
+recipeDisplay();
+
+    
+
+
+
+

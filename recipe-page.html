@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Digital Cookbook</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe</title>
+    
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.50.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    
 </head>
+<header class="bg-blue-900 p-4 flex justify-between items-center border-double">
+    <a href="/index.html" class="text-white text-xl ml-1 font-bold">Digital Cookbook</a>
+    <!-- Search Bar could go here -->
+    <div class="search-container bg-gray-300 rounded-lg ml-5 mr-5 p-1 flex items-center">
+       
+        <h1 class="text-lg font-medium">Recipe Search</h1>
+        <input class="ml-2 px-5 py-3 rounded-tl-lg rounded-bl-lg mr-2" type="text" id="search-input" placeholder="Enter search term">
+        <input class="mr-2 py-3" type="text" id="filters-input" placeholder="Enter filters">
+        <button class="bg-blue-900 px-5 py-3 rounded-tr-lg rounded-br-lg cursor-pointer text-white" id="search-button">Search</button>
+        <div id="search-results"></div>
+        <div id="results-container" class="mt-5">
+            <ul class="list-item">
+              <!-- Search results will be inserted here -->
+            </ul>
+        </div>
+          
+    </div>
+    <!-- Enter Search Bar -->
+    <ul class="flex">
+        <li><a class="text-white text-lg mr-3 font-medium" href="/results-page.html">Search Results</a></li>
+        <!-- <li><a class="text-white text-lg mr-3 font-medium random-recipe-button" href="/recipe-page.html">Random Recipe</a></li> -->
+        <li><a class="text-white text-lg mr-3 font-medium" href="/recipe-page.html">Last Recipe</a></li>
+    </ul>
+</header>
 <body>
     <header class=" grid cols-1 justify-center">
         <div>
@@ -17,6 +45,7 @@
             <img id="recipe-img" class="bg-cover" src="" rel="Picture of Meal">
         </div>
     </header>
+
 
     <main class="grid cols-1 justify-center">
         <div class="border-red-600 rounded-lg border-8 shadow-xl shadow-black m-8">
@@ -30,6 +59,57 @@
             <ul id="instructions">
             </ul>
         </div>  
+
+<!-- This is the nutrition table collapse element -->
+        <div class="collapse collapse-arrow" id="nutrition-table-collapse">
+            <input type="checkbox" /> 
+            <div class="collapse-title text-xl font-medium">
+              View Nutrition Facts
+            </div>
+            <div class="collapse-content"> 
+                <div class="overflow-x-auto" id="table-container">
+                    <table class="table table-compact w-full" id="nutritional-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Ingredient</th>
+                                <th>Calories</th>
+                                <th>Serving Size (g)</th>
+                                <th>Total Fat (g)</th>
+                                <th>Saturated Fat (g)</th>
+                                <th>Protein (g)</th>
+                                <th>Sodium (mg)</th>
+                                <th>Potassium (mg)</th>
+                                <th>Cholesterol (mg)</th>
+                                <th>Carbohydrates (g)</th>
+                                <th>Fiber (g)</th>
+                                <th>Sugar (g)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th>Ingredient</th>
+                                <th>Calories</th>
+                                <th>Serving Size (g)</th>
+                                <th>Total Fat (g)</th>
+                                <th>Saturated Fat (g)</th>
+                                <th>Protein (g)</th>
+                                <th>Sodium (mg)</th>
+                                <th>Potassium (mg)</th>
+                                <th>Cholesterol (mg)</th>
+                                <th>Carbohydrates (g)</th>
+                                <th>Fiber (g)</th>
+                                <th>Sugar (g)</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+          </div>
+
     </main>
     <aside id="timer">
 
@@ -37,3 +117,5 @@
     <script src="./assets/js/recipe-script.js"></script>
 </body>
 </html>
+
+
