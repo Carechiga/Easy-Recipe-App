@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe</title>
+    
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.50.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    
 </head>
 <body>
     <header>
@@ -21,20 +24,56 @@
         <ul id="instructions">
 
         </ul>
-        <table id="nutritional-table">
-            <th>Ingredient</th>
-            <th>Calories</th>
-            <th>Serving Size (g)</th>
-            <th>Total Fat (g)</th>
-            <th>Saturated Fat (g)</th>
-            <th>Protein (g)</th>
-            <th>Sodium (mg)</th>
-            <th>Potassium (mg)</th>
-            <th>Cholesterol (mg)</th>
-            <th>Carbohydrates (g)</th>
-            <th>Fiber (g)</th>
-            <th>Sugar (g)</th>
-        </table>
+<!-- This is the nutrition table collapse element -->
+        <div class="collapse" id="nutrition-table-collapse">
+            <input type="checkbox" /> 
+            <div class="collapse-title text-xl font-medium">
+              View Nutrition Facts
+            </div>
+            <div class="collapse-content"> 
+                <div class="overflow-x-auto" id="table-container">
+                    <table class="table table-compact w-full" id="nutritional-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Ingredient</th>
+                                <th>Calories</th>
+                                <th>Serving Size (g)</th>
+                                <th>Total Fat (g)</th>
+                                <th>Saturated Fat (g)</th>
+                                <th>Protein (g)</th>
+                                <th>Sodium (mg)</th>
+                                <th>Potassium (mg)</th>
+                                <th>Cholesterol (mg)</th>
+                                <th>Carbohydrates (g)</th>
+                                <th>Fiber (g)</th>
+                                <th>Sugar (g)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th>Ingredient</th>
+                                <th>Calories</th>
+                                <th>Serving Size (g)</th>
+                                <th>Total Fat (g)</th>
+                                <th>Saturated Fat (g)</th>
+                                <th>Protein (g)</th>
+                                <th>Sodium (mg)</th>
+                                <th>Potassium (mg)</th>
+                                <th>Cholesterol (mg)</th>
+                                <th>Carbohydrates (g)</th>
+                                <th>Fiber (g)</th>
+                                <th>Sugar (g)</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+          </div>
+
     </main>
     <aside id="timer">
 
@@ -42,3 +81,5 @@
     <script src="./assets/js/recipe-script.js"></script>
 </body>
 </html>
+
+

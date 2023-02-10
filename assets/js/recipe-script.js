@@ -4,7 +4,7 @@ var recipeImg = document.getElementById('recipe-img');
 var ingredientList = document.getElementById('ingredient-list');
 var ingredientArray = ['strIngredient1', 'strIngredient2', 'strIngredient3', 'strIngredient4','strIngredient5', 'strIngredient6', 'strIngredient7', 'strIngredient8', 'strIngredient9', 'strIngredient10', 'strIngredient11', 'strIngredient12','strIngredient13', 'strIngredient14', 'strIngredient15', 'strIngredient16','strIngredient17', 'strIngredient18', 'strIngredient19', 'strIngredient20',];
 
-var tableEl = document.getElementById('nutritional-table')
+var tableBodyEl = document.getElementById('table-body')
 
 var ingredients = [];
 
@@ -27,6 +27,7 @@ function recipeDisplay(){
                     console.log(`${key}: ${data.meals[0][key]}`)
                 }
             }
+            //get nutrition data and display
             var nutritionData = await pollNutritionData(ingredients)
             console.log(`Nutrition Data:`)
             console.log(nutritionData)
@@ -69,18 +70,23 @@ async function pollNutritionData(ingredients){
     return data
 }
 
-
 //displays nutrition data by creating and populating table elements
 function nutritionDisplay(data){
     console.log(`Displaying nutrition table data...`)
+    i = 1
     for (const keys in data){
         rowEl = document.createElement('tr')
+        numEl = document.createElement('th')
+        numEl.textContent = i;
+        i++
+        rowEl.append(numEl);
         for(const key in data[keys]){
             dataEl = document.createElement('td')
             dataEl.textContent = data[keys][key]
             rowEl.append(dataEl)
+            dataEl.className = "text-center"
         }
-        tableEl.append(rowEl)
+        tableBodyEl.append(rowEl)
     }
 }
     
