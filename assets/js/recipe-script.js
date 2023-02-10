@@ -59,6 +59,10 @@ function recipeDisplay(){
             var instructionListItem = document.createElement('li');
             instructionListItem.textContent = instructionsArray[i];
             instructionListItem.classList.add('text-4xl', 'border-2', 'p-2');
+             // Toggle for making the textbox turn green/white
+            instructionListItem.addEventListener("click", function() {
+                this.classList.toggle("green");
+            })
             instructions.appendChild(instructionListItem);
         }
 
