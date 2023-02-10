@@ -95,4 +95,3 @@ document.location.replace('./recipe-page.html');
 randomMealDisplay();
 
 featuredRecipes.addEventListener('click', randomMealNavigate);
-

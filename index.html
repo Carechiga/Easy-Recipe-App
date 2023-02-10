@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <title>Digital Cookbook</title>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +10,31 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<div class="search-container">
+
+<header class="bg-blue-900 p-4 flex justify-between items-center border-double">
+    <a href="/index.html" class="text-white text-xl ml-1 font-bold">Digital Cookbook</a>
+    <!-- Search Bar could go here -->
+    <div class="search-container bg-gray-300 rounded-lg ml-5 mr-5 p-1 flex items-center">
        
-      
-    <h1>Recipe Search</h1>
-    <input type="text" id="search-input" placeholder="Enter search term">
-    <input type="text" id="filters-input" placeholder="Enter filters">
-    <button id="search-button">Search</button>
-    <div id="search-results"></div>
-    <div id="results-container" class="mt-5">
-        <ul class="list-item">
-          <!-- Search results will be inserted here -->
-        </ul>
+        <h1 class="text-lg font-medium">Recipe Search</h1>
+        <input class="ml-2 px-5 py-3 rounded-tl-lg rounded-bl-lg mr-2" type="text" id="search-input" placeholder="Enter search term">
+        <input class="mr-2 px-5 py-3" type="text" id="filters-input" placeholder="Enter filters">
+        <button class="bg-blue-900 px-5 py-3 rounded-tr-lg rounded-br-lg cursor-pointer text-white" id="search-button">Search</button>
+        <div id="search-results"></div>
+        <div id="results-container" class="mt-5">
+            <ul class="list-item">
+              <!-- Search results will be inserted here -->
+            </ul>
+        </div>
+          
     </div>
-      
-</div>
+    <!-- Enter Search Bar -->
+    <ul class="flex">
+        <li><a class="text-white text-lg mr-3 font-medium" href="/results-page.html">Search Results</a></li>
+        <!-- <li><a class="text-white text-lg mr-3 font-medium random-recipe-button" href="/recipe-page.html">Random Recipe</a></li> -->
+        <li><a class="text-white text-lg mr-3 font-medium" href="/recipe-page.html">Last Recipe</a></li>
+    </ul>
+</header>
 <body>
     <div id="featured-recipes" class="grid grid-flow-col justify-items-center">
         <div class="random-meal max-w-md border-solid border-2 border-green-600 rounded-lg border-8 shadow-xl shadow-black" data-id="">
