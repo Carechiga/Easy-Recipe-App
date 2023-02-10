@@ -8,10 +8,17 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<header class="bg-blue-900 p-4 flex justify-between items-center border-double">
+    <a href="/index.html" class="text-white text-xl ml-1 font-bold">Digital Cookbook</a>
+    <!-- Search Bar could go here -->
+    <!-- Enter Search Bar -->
+    <ul class="flex">
+        <li><a class="text-white text-lg mr-3 font-medium" href="/results-page.html">Search Results</a></li>
+        <li><a class="text-white text-lg mr-3 font-medium" href="/results-page.html">Last Recipe</a></li>
+    </ul>
+</header>
 <body>    
     <script src="/assets/js/script.js"></script>
-</body>
-</html>
     <div id="featured-recipes" class="grid grid-flow-col justify-items-center">
         <div class="random-meal max-w-md border-solid border-2 border-green-600 rounded-lg border-8 shadow-xl shadow-black" data-id="">
             <img class="random-meal-img " src="" data-id="">
