@@ -9,6 +9,7 @@ localStorage.setItem("fetchURL", URL);
 function submitSearch(event) {
   event.preventDefault();
   const searchValue = searchInput.value;
+  localStorage.setItem('searchTerm', searchValue);
   var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ searchValue
   console.log(searchURL);
   URLtoLocalStorage(searchURL);
