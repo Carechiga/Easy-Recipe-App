@@ -21,7 +21,7 @@ function recipeDisplay(){
 
 .then(function(response){
     return response.json()})
-    .then(function(data){
+    .then(async function(data){
         console.log(data);
         var selectedMeal = data.meals[0];
         recipeName.textContent = selectedMeal.strMeal;
@@ -29,6 +29,21 @@ function recipeDisplay(){
         //takes instructions and splits them in to different items
         var instructionsString = selectedMeal.strInstructions;
         var instructionsArray = instructionsString.split('.');
+
+        //get ingredients and add them to array ingredients to poll nutrition data
+        console.log(`Parsing recipe ingredient list:`)
+        for(const key in data.meals[0]){
+            if(key.includes("strIngredient") && data.meals[0][key] !== "" ){
+                ingredients.push(data.meals[0][key])
+                console.log(`${key}: ${data.meals[0][key]}`)
+            }
+        }
+        //get nutrition data and display
+        var nutritionData = await pollNutritionData(ingredients)
+        console.log(`Nutrition Data:`)
+        console.log(nutritionData)
+        nutritionDisplay(nutritionData)
+
         
         //builds ingredient list items and appends to page        
         for(var i = 0; i < 20; i++){
@@ -82,13 +97,14 @@ function nutritionDisplay(data){
         rowEl = document.createElement('tr')
         numEl = document.createElement('th')
         numEl.textContent = i;
+        numEl.className = "text-center text-3xl"
         i++
         rowEl.append(numEl);
         for(const key in data[keys]){
             dataEl = document.createElement('td')
             dataEl.textContent = data[keys][key]
             rowEl.append(dataEl)
-            dataEl.className = "text-center"
+            dataEl.className = "text-center text-3xl"
         }
         tableBodyEl.append(rowEl)
     }
