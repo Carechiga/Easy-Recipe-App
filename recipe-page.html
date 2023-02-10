@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <title>Digital Cookbook</title>
     <meta charset="UTF-8">
@@ -37,16 +37,29 @@
     </ul>
 </header>
 <body>
-    <header>
-        <h1 id="recipe-name"></h1>
-        <img id="recipe-img" src="">
+    <header class=" grid cols-1 justify-center">
+        <div>
+            <h1 id="recipe-name" class="text-8xl font-bold p-5 text-center"></h1>
+        </div>
+        <div></div>
+            <img id="recipe-img" class="bg-cover" src="" rel="Picture of Meal">
+        </div>
     </header>
 
-    <main>
-        <ul id="ingredient-list">
 
-        </ul>
-        <ul id="instructions">
+    <main class="grid cols-1 justify-center">
+        <div class="border-red-600 rounded-lg border-8 shadow-xl shadow-black m-8">
+            <h1 class="text-6xl font-bold border-4 border-b-black text-center p-4">Ingredients:</h1>
+            <ul id="ingredient-list">
+                
+            </ul>
+        </div>
+        <div class="border-blue-600 rounded-lg border-8 shadow-xl shadow-black m-8">
+            <h1 class="text-6xl font-bold border-4 border-b-black text-center p-4">Step by Step Instructions:</h1>
+            <ul id="instructions">
+            </ul>
+        </div>  
+
 
         </ul>
 
@@ -58,10 +71,11 @@
     <button onclick="startTimer()" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Start Timer</button>
   </div>
 
+
 <!-- This is the nutrition table collapse element -->
         <div class="collapse collapse-arrow" id="nutrition-table-collapse">
             <input type="checkbox" /> 
-            <div class="collapse-title text-xl font-medium">
+            <div class="collapse-title text-6xl font-medium">
               View Nutrition Facts
             </div>
             <div class="collapse-content"> 
@@ -70,37 +84,37 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Ingredient</th>
-                                <th>Calories</th>
-                                <th>Serving Size (g)</th>
-                                <th>Total Fat (g)</th>
-                                <th>Saturated Fat (g)</th>
-                                <th>Protein (g)</th>
-                                <th>Sodium (mg)</th>
-                                <th>Potassium (mg)</th>
-                                <th>Cholesterol (mg)</th>
-                                <th>Carbohydrates (g)</th>
-                                <th>Fiber (g)</th>
-                                <th>Sugar (g)</th>
+                                <th class = "text-center text-3xl">Ingredient</th>
+                                <th class = "text-center text-3xl">Calories</th>
+                                <th class = "text-center text-3xl">Serving Size (g)</th>
+                                <th class = "text-center text-3xl">Total Fat (g)</th>
+                                <th class = "text-center text-3xl">Saturated Fat (g)</th>
+                                <th class = "text-center text-3xl">Protein (g)</th>
+                                <th class = "text-center text-3xl">Sodium (mg)</th>
+                                <th class = "text-center text-3xl">Potassium (mg)</th>
+                                <th class = "text-center text-3xl">Cholesterol (mg)</th>
+                                <th class = "text-center text-3xl">Carbohydrates (g)</th>
+                                <th class = "text-center text-3xl">Fiber (g)</th>
+                                <th class = "text-center text-3xl">Sugar (g)</th>
                             </tr>
                         </thead>
                         <tbody id="table-body">
                         </tbody>
                         <tfoot>
-                            <tr>
+                            <tr >
                                 <th></th>
-                                <th>Ingredient</th>
-                                <th>Calories</th>
-                                <th>Serving Size (g)</th>
-                                <th>Total Fat (g)</th>
-                                <th>Saturated Fat (g)</th>
-                                <th>Protein (g)</th>
-                                <th>Sodium (mg)</th>
-                                <th>Potassium (mg)</th>
-                                <th>Cholesterol (mg)</th>
-                                <th>Carbohydrates (g)</th>
-                                <th>Fiber (g)</th>
-                                <th>Sugar (g)</th>
+                                <th class = "text-center text-3xl">Ingredient</th>
+                                <th class = "text-center text-3xl">Calories</th>
+                                <th class = "text-center text-3xl">Serving Size (g)</th>
+                                <th class = "text-center text-3xl">Total Fat (g)</th>
+                                <th class = "text-center text-3xl">Saturated Fat (g)</th>
+                                <th class = "text-center text-3xl">Protein (g)</th>
+                                <th class = "text-center text-3xl">Sodium (mg)</th>
+                                <th class = "text-center text-3xl">Potassium (mg)</th>
+                                <th class = "text-center text-3xl">Cholesterol (mg)</th>
+                                <th class = "text-center text-3xl">Carbohydrates (g)</th>
+                                <th class = "text-center text-3xl">Fiber (g)</th>
+                                <th class = "text-center text-3xl">Sugar (g)</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -112,6 +126,12 @@
     <aside id="timer">
 
     </aside>
+
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+        <div>
+          <p class="text-3xl">Copyright © 2023 - All right reserved by Team 6</p>
+        </div>
+      </footer>
     <script src="./assets/js/recipe-script.js"></script>
 </body>
 </html>
