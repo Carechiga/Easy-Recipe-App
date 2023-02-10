@@ -5,7 +5,22 @@ var ingredientList = document.getElementById('ingredient-list');
 var ingredientItem = document.querySelectorAll('.ingredient-item');
 var instructions = document.getElementById('instructions');
 
+//search bar functionality
+const searchBar = document.querySelector("#search-bar");
+const searchInput = document.querySelector("#search-input");
 
+function URLtoLocalStorage(URL){
+localStorage.setItem("fetchURL", URL);
+}
+
+function submitSearch(event) {
+  event.preventDefault();
+  const searchValue = searchInput.value;
+  var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ searchValue
+  console.log(searchURL);
+  URLtoLocalStorage(searchURL);
+  document.location.replace('./results-page.html');
+}
 
 //loads recipe info using mealID stored in localStorage
 
@@ -131,7 +146,5 @@ countdown = setInterval(function() {
     }, 1000);
   }
     
-
-
-
+  searchBar.addEventListener('submit', submitSearch)
 
