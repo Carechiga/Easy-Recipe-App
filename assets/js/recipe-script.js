@@ -112,6 +112,24 @@ function nutritionDisplay(data){
     
 recipeDisplay();
 
+// Countdown timer
+function startTimer() {
+    var input = document.getElementById("secondsInput").value;
+    if (isNaN(input) || input <= 0) {
+        document.getElementById("timer").innerHTML = "Please enter a number in the box!"
+        return;
+    }
+
+var seconds = parseInt(input, 10);
+countdown = setInterval(function() {
+    seconds--;
+    document.getElementById("timer").innerHTML = "Time remaining: " + seconds + " seconds";
+      if (seconds <= 0) {
+        clearInterval(countdown);
+        document.getElementById("timer").innerHTML = "Time's up!";
+      }
+    }, 1000);
+  }
     
 
 
