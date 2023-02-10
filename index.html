@@ -1,27 +1,49 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>Recipe Search</title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
   </head>
-  <body>
+  
+  <body class="p-6">
+    <h1 class="text-3xl font-bold underline text-center">
+      Recipes made easy
+    </h1>
+  
+    <div class="container mx-auto">
+      <form class="flex items-center p-4 border border-gray-400">
+        <input class="bg-gray-200 p-2 rounded-l-full border-r-0 border border-gray-400" type="text" id="search-input" placeholder="Search">
+        <button class="border border-slate-300 hover:border-indigo-300" id="search-button">Search</button>
+      </form>
+    </div>
     
-    <div class="search-container">
-       
-      
-    <h1>Recipe Search</h1>
-    <input type="text" id="search-input" placeholder="Enter search term">
-    <input type="text" id="filters-input" placeholder="Enter filters">
-    <button id="search-button">Search</button>
-    <div id="search-results"></div>
-    <div id="results-container" class="mt-5">
-        <ul class="list-item">
-          <!-- Search results will be inserted here -->
-        </ul>
-      </div>
-      
-</div>
+    <div class="flex flex-col items-center mt-6" id="searchResults">
+      <div id="results-container" class="mt-5">
+          <ul class="list-disc">
+            <!-- Search results will be inserted here -->
+          </ul>
+        </div>
+
+
+        <div class="flex flex-wrap justify-center">
+            <div class="meal-item w-64 p-4 border border-gray-400 m-4">
+              <div class="meal-img">
+                <img src="" alt="food">
+              </div>
+              <div class="meal-name text-center">
+                <h3 class="text-lg font-bold mt-2">Meal Name</h3>
+                <a href="#" class="bg-gray-400 p-2 rounded mt-2">Get Recipe</a>
+              </div>
+            </div>
+          </div>
+          
+         
+          
+          <div class="results-container">
+            <!-- Recipe cards will be added here -->
+          </div>
+            
+    </div>
   </body>
-</html>
+  
 <script src="./assets/js/script.js"></script>
+

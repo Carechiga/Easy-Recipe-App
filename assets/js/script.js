@@ -3,7 +3,7 @@ const searchInput = document.querySelector("#search-input");
 
 searchButton.addEventListener("click", async () => {
   const searchValue = searchInput.value;
-  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchValue}`);
+  const response = await fetch(`https://www.themealdb.com/api/json/v2/9973533/search.php?s=${searchValue}`);
   const data = await response.json();
   console.log(data);
 
@@ -17,7 +17,7 @@ const resultsContainer = document.querySelector("#results-container");
 resultsContainer.appendChild(recipeElement);
   });
 })
-var requestUrl = 'www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata';
+var requestUrl = 'www.themealdb.com/api/json/v2/9973533/search.php?s=Arrabiata';
 var mealList = document.querySelector('ul');
 
 
