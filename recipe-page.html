@@ -49,6 +49,15 @@
         <ul id="instructions">
 
         </ul>
+
+<!-- Timer and CSS formatting -->
+<div class="flex items-center h-screen">
+  <div class="m-auto bg-black p-6 rounded-lg shadow-lg">
+    <p id="timer" class="text-4xl font-medium"></p>
+    <input type="text" id="secondsInput" class="w-32 border border-gray-400 rounded-lg p-2 mb-2">
+    <button onclick="startTimer()" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Start Timer</button>
+  </div>
+
 <!-- This is the nutrition table collapse element -->
         <div class="collapse collapse-arrow" id="nutrition-table-collapse">
             <input type="checkbox" /> 
