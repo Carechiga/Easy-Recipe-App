@@ -17,28 +17,28 @@ function submitSearch(event) {
 }
 
 // Random featured meals script
-var radnomMealCard = document.querySelectorAll(".random-meal");
-var randomMealImg = document.querySelectorAll(".random-meal-img");
-var randomMealTitle = document.querySelectorAll(".random-meal-name");
-var randomMealCard = document.querySelectorAll(".random-meal");
-var featuredRecipes = document.getElementById("featured-recipes");
 
-
+var featuredMealImgEl = document.querySelectorAll(".carousel-item img")
+var featuredMealCaptionEl = document.querySelectorAll(".carousel-caption")
+console.log(featuredMealImgEl)
 
 //this function retrieves images and names of random recipes from themealDB API
 function randomMealDisplay(){
     fetch("https://www.themealdb.com/api/json/v2/9973533/randomselection.php")
-.then(function(response){
-    return response.json()})
-    .then(function(data){
-        console.log(data);
-       
-        for(var i = 0; i < 3; i++){
-            randomMealImg[i].src = data.meals[i].strMealThumb;
-            randomMealImg[i].setAttribute('data-id', data.meals[i].idMeal)
-            randomMealTitle[i].textContent = data.meals[i].strMeal;
-            randomMealTitle[i].setAttribute('data-id', data.meals[i].idMeal)
-            randomMealCard[i].setAttribute('data-id', data.meals[i].idMeal);
+        .then(function(response){
+            return response.json()})
+        .then(function(data){
+            console.log(data);
+            for (var i = 0; i < 3; i++){
+                featuredMealImgEl[i].src = data.meals[i].strMealThumb;
+                featuredMealCaptionEl[i].children[0].textContent = data.meals[i].strMeal;
+                featuredMealCaptionEl[i].children[1].textContent = `${data.meals[i].strArea} Food`
+
+                featuredMealImgEl[i].setAttribute('data-id', data.meals[i].idMeal);
+                featuredMealCaptionEl[i].setAttribute('data-id', data.meals[i].idMeal);
+
+                featuredMealCaptionEl[i].addEventListener('click',randomMealNavigate)
+                featuredMealImgEl[i].addEventListener('click', randomMealNavigate);
             }
    });
 }
@@ -57,6 +57,6 @@ document.location.replace('./recipe-page.html');
 
 randomMealDisplay();
 
-featuredRecipes.addEventListener('click', randomMealNavigate);
-searchBar.addEventListener('submit', submitSearch)
+// temp disabled 
+// searchBar.addEventListener('submit', submitSearch)
 
