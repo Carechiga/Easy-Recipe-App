@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.50.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <header class="bg-blue-900 p-4 flex justify-between items-center border-double">
-    <a href="/index.html" class="text-white text-xl ml-1 font-bold">Digital Cookbook</a>
+    <a href="./index.html" class="text-white text-xl ml-1 font-bold">Digital Cookbook</a>
     <!-- Search Bar could go here -->
     <form id="search-bar"class="search-container bg-gray-300 rounded-lg ml-5 mr-5 p-1 flex items-center">
        
@@ -21,20 +22,27 @@
     </form>
     <!-- Enter Search Bar -->
     <ul class="flex">
-        <li><a class="text-white text-lg mr-3 font-medium" href="/results-page.html">Search Results</a></li>
-        <!-- <li><a class="text-white text-lg mr-3 font-medium random-recipe-button" href="/recipe-page.html">Random Recipe</a></li> -->
-        <li><a class="text-white text-lg mr-3 font-medium" href="/recipe-page.html">Last Recipe</a></li>
+        <li><a class="text-white text-lg mr-3 font-medium" href="./results-page.html">Search Results</a></li>
+        <!-- <li><a class="text-white text-lg mr-3 font-medium random-recipe-button" href="./recipe-page.html">Random Recipe</a></li> -->
+        <li><a class="text-white text-lg mr-3 font-medium" href="./recipe-page.html">Last Recipe</a></li>
     </ul>
 </header>
 <body>
     <header>
         <h1 id="search-content" class="text-8xl font-bold p-5 text-center"></h1>
     </header>
-    <div id="resultsBody" class="text-4xl font-bold p-5">
-        <ul id="results-list">
-
-        </ul>
-    </div>
+    <main>
+        <div id="resultsBody" class="text-4xl font-bold p-5">
+            <ul id="results-list">
+    
+            </ul>
+        </div>
+    </main>
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content my-3">
+        <div>
+          <p class="text-1xl lg:text-2xl">Copyright © 2023 - All rights reserved by Team 6</p>
+        </div>
+      </footer>
     <script src="./assets/js/results-script.js"></script>
 </body>
 </html>
