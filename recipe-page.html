@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dracula">
 <head>
     <title>Digital Cookbook</title>
     <meta charset="UTF-8">
@@ -30,98 +30,126 @@
     </ul>
 </header>
 <body>
-    <header class=" grid cols-1 justify-center">
-        <div>
-            <h1 id="recipe-name" class="text-8xl font-bold p-5 text-center"></h1>
+
+    <div class="card w-96 bg-base-100 shadow-xl">
+    <img id="recipe-img" class="bg-cover" src="" rel="Picture of Meal">
+        <div class="card-body">
+          <h2 id="recipe-name" class="text-4xl font-bold p-5 text-center"></h2>
+          <div class="card-actions justify-center items-center">
+
+<!-- The button to view ingredients -->
+<label for="viewIngredients" class="btn">View Ingredients</label>
+
+<input type="checkbox" id="viewIngredients" class="modal-toggle" />
+<label for="viewIngredients" class="modal cursor-pointer">
+  <label class="modal-box w-full max-w-screen-xl" for="">
+    <h1 class="text-4xl mb-1 font-bold">Ingredients</h1>
+    <div data-theme="aqua">
+    <ul id="ingredient-list"></ul>
+    </div>
+  </label>
+</label>  
+
+<!-- The button to view instructions -->
+<label for="viewInstructions" class="btn">View Instructions</label>
+
+<input type="checkbox" id="viewInstructions" class="modal-toggle" />
+<label for="viewInstructions" class="modal cursor-pointer">
+  <label class="modal-box w-full max-w-screen-xl" for="">
+    <h1 class="text-4xl mb-1 font-bold">Instructions</h1>
+    <div data-theme="aqua">
+    <p id="timer" class="text-4xl font-medium"></p>
+<<<<<<< Updated upstream
+    <input type="text" id="secondsInput" class="w-32 border border-gray-500 rounded-lg p-2">
+=======
+    <input type="text" id="secondsInput" class="w-32 border border-gray-400 rounded-lg p-2 mb-2">
+>>>>>>> Stashed changes
+    <button onclick="startTimer()" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Start Timer</button>
+    <ul id="instructions"></ul>
+    </div>
+    </div>
+  </label>
+</label>
+
+<!-- The button to view nutrition facts -->
+<label for="viewNutrition" class="btn">View Nutrition Facts</label>
+
+<input type="checkbox" id="viewNutrition" class="modal-toggle" />
+<label for="viewNutrition" class="modal cursor-pointer">
+  <label class="modal-box w-full max-w-screen-xl" for="">
+    <h1 class="text-4xl mb-1 font-bold">Nutrition Facts</h1>
+    <div data-theme ="aqua" class="overflow-x-auto" id="table-container">
+        <table class="table table-compact w-full" id="nutritional-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class = "text-center text-3xl">Ingredient</th>
+                    <th class = "text-center text-3xl">Calories</th>
+                    <th class = "text-center text-3xl">Serving Size (g)</th>
+                    <th class = "text-center text-3xl">Total Fat (g)</th>
+                    <th class = "text-center text-3xl">Saturated Fat (g)</th>
+                    <th class = "text-center text-3xl">Protein (g)</th>
+                    <th class = "text-center text-3xl">Sodium (mg)</th>
+                    <th class = "text-center text-3xl">Potassium (mg)</th>
+                    <th class = "text-center text-3xl">Cholesterol (mg)</th>
+                    <th class = "text-center text-3xl">Carbohydrates (g)</th>
+                    <th class = "text-center text-3xl">Fiber (g)</th>
+                    <th class = "text-center text-3xl">Sugar (g)</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+            <tfoot>
+                <tr >
+                    <th></th>
+                    <th class = "text-center text-3xl">Ingredient</th>
+                    <th class = "text-center text-3xl">Calories</th>
+                    <th class = "text-center text-3xl">Serving Size (g)</th>
+                    <th class = "text-center text-3xl">Total Fat (g)</th>
+                    <th class = "text-center text-3xl">Saturated Fat (g)</th>
+                    <th class = "text-center text-3xl">Protein (g)</th>
+                    <th class = "text-center text-3xl">Sodium (mg)</th>
+                    <th class = "text-center text-3xl">Potassium (mg)</th>
+                    <th class = "text-center text-3xl">Cholesterol (mg)</th>
+                    <th class = "text-center text-3xl">Carbohydrates (g)</th>
+                    <th class = "text-center text-3xl">Fiber (g)</th>
+                    <th class = "text-center text-3xl">Sugar (g)</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+  </label>
+</label>
+          </div>
         </div>
-        <div></div>
-            <img id="recipe-img" class="bg-cover" src="" rel="Picture of Meal">
-        </div>
-    </header>
+      </div>
 
 
-    <main class="grid cols-1 justify-center">
-        <div class="border-red-600 rounded-lg border-8 shadow-xl shadow-black m-8">
-            <h1 class="text-6xl font-bold border-4 border-b-black text-center p-4">Ingredients:</h1>
-            <ul id="ingredient-list">
-                
-            </ul>
-        </div>
-        <div class="border-blue-600 rounded-lg border-8 shadow-xl shadow-black m-8">
-            <h1 class="text-6xl font-bold border-4 border-b-black text-center p-4">Step by Step Instructions:</h1>
-            <ul id="instructions">
-            </ul>
-        </div>  
 
 
-        </ul>
+
+<!-- TESTING -->
+
+
+
+
+
+
+<!-- TESTING -->
 
 <!-- Timer and CSS formatting -->
 <div class="flex items-center h-screen">
   <div class="m-auto bg-black p-6 rounded-lg shadow-lg">
-    <p id="timer" class="text-4xl font-medium"></p>
-    <input type="text" id="secondsInput" class="w-32 border border-gray-400 rounded-lg p-2 mb-2">
-    <button onclick="startTimer()" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Start Timer</button>
-  </div>
 
 
-<!-- This is the nutrition table collapse element -->
-        <div class="collapse collapse-arrow" id="nutrition-table-collapse">
-            <input type="checkbox" /> 
-            <div class="collapse-title text-6xl font-medium">
-              View Nutrition Facts
-            </div>
-            <div class="collapse-content"> 
-                <div class="overflow-x-auto" id="table-container">
-                    <table class="table table-compact w-full" id="nutritional-table">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th class = "text-center text-3xl">Ingredient</th>
-                                <th class = "text-center text-3xl">Calories</th>
-                                <th class = "text-center text-3xl">Serving Size (g)</th>
-                                <th class = "text-center text-3xl">Total Fat (g)</th>
-                                <th class = "text-center text-3xl">Saturated Fat (g)</th>
-                                <th class = "text-center text-3xl">Protein (g)</th>
-                                <th class = "text-center text-3xl">Sodium (mg)</th>
-                                <th class = "text-center text-3xl">Potassium (mg)</th>
-                                <th class = "text-center text-3xl">Cholesterol (mg)</th>
-                                <th class = "text-center text-3xl">Carbohydrates (g)</th>
-                                <th class = "text-center text-3xl">Fiber (g)</th>
-                                <th class = "text-center text-3xl">Sugar (g)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-body">
-                        </tbody>
-                        <tfoot>
-                            <tr >
-                                <th></th>
-                                <th class = "text-center text-3xl">Ingredient</th>
-                                <th class = "text-center text-3xl">Calories</th>
-                                <th class = "text-center text-3xl">Serving Size (g)</th>
-                                <th class = "text-center text-3xl">Total Fat (g)</th>
-                                <th class = "text-center text-3xl">Saturated Fat (g)</th>
-                                <th class = "text-center text-3xl">Protein (g)</th>
-                                <th class = "text-center text-3xl">Sodium (mg)</th>
-                                <th class = "text-center text-3xl">Potassium (mg)</th>
-                                <th class = "text-center text-3xl">Cholesterol (mg)</th>
-                                <th class = "text-center text-3xl">Carbohydrates (g)</th>
-                                <th class = "text-center text-3xl">Fiber (g)</th>
-                                <th class = "text-center text-3xl">Sugar (g)</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-          </div>
+<<<<<<< Updated upstream
 
-    </main>
-    <aside id="timer">
-
-    </aside>
+    <p>Copyright © 2023 - All rights reserved by Team 6</p>
+=======
     <footer class="footer footer-center p-4 bg-base-300 text-base-content">
         <div>
           <p class="text-3xl">Copyright © 2023 - All right reserved by Team 6</p>
+>>>>>>> Stashed changes
         </div>
       </footer>
     <script src="./assets/js/recipe-script.js"></script>
