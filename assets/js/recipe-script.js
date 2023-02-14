@@ -9,6 +9,19 @@ var instructions = document.getElementById('instructions');
 const searchBar = document.querySelector("#search-bar");
 const searchInput = document.querySelector("#search-input");
 
+const mobileSearchBar = document.querySelector("#mobile-search-bar");
+const mobileSearchInput = document.querySelector("#mobile-search-input");
+
+function mobileSubmitSearch(event) {
+    event.preventDefault();
+    const mobileSearchValue = mobileSearchInput.value;
+    localStorage.setItem('searchTerm', mobileSearchValue);
+    var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ mobileSearchValue;
+    console.log(searchURL);
+    URLtoLocalStorage(searchURL);
+    document.location.replace('./results-page.html');
+  }
+
 function URLtoLocalStorage(URL){
 localStorage.setItem("fetchURL", URL);
 }
@@ -17,7 +30,7 @@ function submitSearch(event) {
   event.preventDefault();
   const searchValue = searchInput.value;
   localStorage.setItem('searchTerm', searchValue);
-  var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ searchValue
+  var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ searchValue;
   console.log(searchURL);
   URLtoLocalStorage(searchURL);
   document.location.replace('./results-page.html');
@@ -151,5 +164,6 @@ countdown = setInterval(function() {
     }, 1000);
   }
     
-  searchBar.addEventListener('submit', submitSearch)
+  searchBar.addEventListener('submit', submitSearch);
+  mobileSearchBar.addEventListener('submit', mobileSubmitSearch);
 

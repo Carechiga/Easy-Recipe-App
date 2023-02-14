@@ -17,6 +17,18 @@ function submitSearch(event) {
   document.location.replace('./results-page.html');
 }
 
+const mobileSearchBar = document.querySelector("#mobile-search-bar");
+const mobileSearchInput = document.querySelector("#mobile-search-input");
+
+function mobileSubmitSearch(event) {
+    event.preventDefault();
+    const mobileSearchValue = mobileSearchInput.value;
+    localStorage.setItem('searchTerm', mobileSearchValue);
+    var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ mobileSearchValue;
+    console.log(searchURL);
+    URLtoLocalStorage(searchURL);
+    document.location.replace('./results-page.html');
+  }
 
 async function createButtons() {
 
@@ -117,4 +129,5 @@ searchBar.addEventListener('submit', submitSearch)
 randomMealDisplay();
 createButtons();
 searchBar.addEventListener('submit', submitSearch);
+mobileSearchBar.addEventListener('submit', mobileSubmitSearch);
 filterButtons.addEventListener('click', filterNavigate);

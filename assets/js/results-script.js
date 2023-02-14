@@ -18,6 +18,19 @@ function submitSearch(event) {
   document.location.replace('./results-page.html');
 }
 
+const mobileSearchBar = document.querySelector("#mobile-search-bar");
+const mobileSearchInput = document.querySelector("#mobile-search-input");
+
+function mobileSubmitSearch(event) {
+    event.preventDefault();
+    const mobileSearchValue = mobileSearchInput.value;
+    localStorage.setItem('searchTerm', mobileSearchValue);
+    var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ mobileSearchValue;
+    console.log(searchURL);
+    URLtoLocalStorage(searchURL);
+    document.location.replace('./results-page.html');
+  }
+
 //dynamically creates result elements for recipes of the searched criteria using data from local storage
 function loadPage(){
     searchTerm.textContent = "Search Results: " + localStorage.getItem('searchTerm');
@@ -49,12 +62,12 @@ function loadPage(){
                 var resultItemTags = document.createElement('label');
                 resultItemTags.setAttribute('data-id', data.meals[i].idMeal);
                 resultItemTags.textContent = data.meals[i].strArea;
-                resultItemTags.classList.add('btn', 'my-1', 'pointer-events-none', 'align-bottom');
+                resultItemTags.classList.add('btn', 'my-1', 'pointer-events-none', 'align-bottom', 'bg-gray-300');
 
                 var resultItemCategory = document.createElement('label');
                 resultItemCategory.setAttribute('data-id', data.meals[i].idMeal);
                 resultItemCategory.textContent = data.meals[i].strCategory;
-                resultItemCategory.classList.add('btn', 'my-1', 'pointer-events-none', 'align-bottom');
+                resultItemCategory.classList.add('btn', 'my-1', 'pointer-events-none', 'align-bottom', 'bg-gray-300');
 
                 var resultListItem = document.createElement('li');
                 resultListItem.setAttribute('data-id', data.meals[i].idMeal);
@@ -92,5 +105,6 @@ function navigateToRecipe(event){
 
 loadPage();
 
-searchBar.addEventListener('submit', submitSearch)
-resultsList.addEventListener('click', navigateToRecipe)
+searchBar.addEventListener('submit', submitSearch);
+mobileSearchBar.addEventListener('submit', mobileSubmitSearch);
+resultsList.addEventListener('click', navigateToRecipe);
