@@ -12,7 +12,7 @@ function submitSearch(event) {
   event.preventDefault();
   const searchValue = searchInput.value;
   localStorage.setItem('searchTerm', searchValue);
-  var searchURL = 'https://www.themealdb.com/api/json/v1/1/search.php?s='+ searchValue
+  var searchURL = 'https://www.themealdb.com/api/json/v1/1/search.php?s='+ searchValue;
   console.log(searchURL);
   URLtoLocalStorage(searchURL);
   document.location.replace('./results-page.html');
@@ -45,10 +45,7 @@ function loadPage(){
                 resultItemName.textContent = data.meals[i].strMeal;
                 resultItemName.classList.add('my-1', 'pointer-events-none');
 
-                var resultItemTags = document.createElement('label');
-                resultItemTags.setAttribute('data-id', data.meals[i].idMeal);
-                resultItemTags.textContent = data.meals[i].strArea;
-                resultItemTags.classList.add('btn', 'my-1', 'pointer-events-none');
+                
 
                 var resultItemCategory = document.createElement('label');
                 resultItemCategory.setAttribute('data-id', data.meals[i].idMeal);
@@ -58,11 +55,23 @@ function loadPage(){
                 var resultListItem = document.createElement('li');
                 resultListItem.setAttribute('data-id', data.meals[i].idMeal);
                 resultListItem.classList.add('card', 'p-8', 'w-96', 'bg-base-100', 'shadow-xl', 'mx-auto', 'bg-gray-200', 'mx-2', 'my-2', 'w-full', 'md:w-1/4');
-
                 resultListItem.appendChild(resultItemImg);
                 resultListItem.appendChild(resultItemName);
-                resultListItem.appendChild(resultItemTags);
-                resultListItem.appendChild(resultItemCategory);
+                
+                if(data.meals[i].strArea){
+                    var resultItemTags = document.createElement('label');
+                    resultItemTags.setAttribute('data-id', data.meals[i].idMeal);
+                    resultItemTags.textContent = data.meals[i].strArea;
+                    resultItemTags.classList.add('btn', 'my-1', 'pointer-events-none');
+
+                    var resultItemCategory = document.createElement('label');
+                    resultItemCategory.setAttribute('data-id', data.meals[i].idMeal);
+                    resultItemCategory.textContent = data.meals[i].strCategory;
+                    resultItemCategory.classList.add('btn', 'my-1', 'pointer-events-none');
+                    resultListItem.appendChild(resultItemTags);
+                    resultListItem.appendChild(resultItemCategory);
+
+                }
                 resultsList.appendChild(resultListItem);
                 }
             }

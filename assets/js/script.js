@@ -37,7 +37,7 @@ function filterNavigate (event) {
     event.preventDefault();
     const filterName = event.target.textContent;
     localStorage.setItem('searchTerm', filterName);
-    const filterURL = 'https://www.themealdb.com/api/json/v1/1/search.php?s=' + filterName;
+    const filterURL = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=' + filterName;
     URLtoLocalStorage(filterURL);
     document.location.replace('./results-page.html');
 }
