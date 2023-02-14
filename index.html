@@ -29,6 +29,7 @@
 </head>
 
 <body>
+
     <nav class="bg-blue-900 p-4 flex justify-between items-center">
       <a href="./index.html" class="hidden md:flex text-white text-xl ml-1 font-bold">Digital Cookbook</a>
       <form id="search-bar"class="hidden md:flex search-container bg-gray-300 rounded-lg ml-5 mr-5 p-1 flex items-center">
@@ -84,6 +85,10 @@
     </nav>
 
     <main class="container mx-auto lg:max-w-4xl">
+        <div id="filterbuttons">
+            
+        </div>
+
         <div class="text-center bg-gray-100 text-gray-800 py-5 lg:py-10 px-6" id="body-title">
             <h1 class="text-3xl lg:text-4xl font-bold my-auto">Featured Recipes</h1>
             <h3 class="text-1xl lg:text-2xl font-bold my-auto">Click on a recipe to begin cooking!</h3>
@@ -167,12 +172,20 @@
                 </button>
               </div>
         </div>
+        <div class="text-center bg-gray-100 text-gray-800 py-5 lg:py-10 px-6" id="body-title">
+          <h1 class="text-2xl lg:text-4xl font-bold my-auto">Not appetizing enough?</h1>
+          <h3 class="text-1xl lg:text-2xl font-bold my-auto">More exciting meals below</h3>
+        </div>
+        <div class = "flex flex-wrap mx-auto" id="card-container">
+
+        </div>
     </main>
     <footer class="footer footer-center p-4 bg-base-300 text-base-content my-3">
         <div>
           <p class="text-1xl lg:text-2xl">Copyright © 2023 - All rights reserved by Team 6</p>
         </div>
       </footer>
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </body>
