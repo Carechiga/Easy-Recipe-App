@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <title>Digital Cookbook</title>
 
@@ -29,24 +29,57 @@
 </head>
 
 <body>
-
-    <header class="bg-blue-900 p-4 flex justify-between items-center border-double">
-        <a href="./index.html" class="text-white text-xl ml-1 font-bold">Digital Cookbook</a>
-        <!-- Search Bar could go here -->
-        <!-- <form id="search-bar"class="search-container bg-gray-300 rounded-lg ml-5 mr-5 p-1 flex items-center">
+    <nav class="bg-blue-900 p-4 flex justify-between items-center">
+      <a href="./index.html" class="hidden md:flex text-white text-xl ml-1 font-bold">Digital Cookbook</a>
+      <form id="search-bar"class="hidden md:flex search-container bg-gray-300 rounded-lg ml-5 mr-5 p-1 flex items-center">
            
-            <h1 class="text-lg font-medium">Recipe Search</h1>
-            <input class="ml-2 px-5 py-3 rounded-tl-lg rounded-bl-lg mr-2" type="text" id="search-input" placeholder="Enter search term">
-            <button class="bg-blue-900 px-5 py-3 rounded-tr-lg rounded-br-lg cursor-pointer text-white" id="search-button">Search</button>
-             
-        </form> -->
-        <!-- Enter Search Bar -->
-        <ul class="flex">
-            <li><a class="text-white text-lg mr-3 font-medium" href="./results-page.html">Search Results</a></li>
-            <!-- <li><a class="text-white text-lg mr-3 font-medium random-recipe-button" href="/recipe-page.html">Random Recipe</a></li> -->
-            <li><a class="text-white text-lg mr-3 font-medium" href="./recipe-page.html">Last Recipe</a></li>
-        </ul>
-    </header>
+        <h1 class="text-lg font-medium">Recipe Search</h1>
+        <input class="ml-2 px-5 py-3 rounded-tl-lg rounded-bl-lg mr-2" type="text" id="search-input" placeholder="Enter search term">
+        <button class="bg-blue-900 px-5 py-3 rounded-tr-lg rounded-br-lg cursor-pointer text-white" id="search-button">Search</button>
+         
+      </form>
+      <ul class="flex hidden md:flex">
+        <li><a class="text-white text-lg mr-3 font-medium" href="./results-page.html">Search Results</a></li>
+        <li><a class="text-white text-lg mr-3 font-medium" href="./recipe-page.html">Recipe Page</a></li>
+      </ul>
+
+
+      <form id="search-bar"class="md:hidden search-container bg-gray-300 rounded-lg ml-5 mr-5 p-1 flex items-center">
+          
+        <input class="ml-2 px-5 py-3 rounded-tl-lg rounded-bl-lg mr-2" type="text" id="search-input" placeholder="Enter search term">
+        <button class="bg-blue-900 px-5 py-3 rounded-tr-lg rounded-br-lg cursor-pointer text-white" id="search-button">Search</button>
+         
+      </form>
+      <div class="md:hidden flex-col items-center">
+        <button class="mobile-menu-button">
+          <svg class=" w-6 h-6 text-white hover:text-blue-500 "
+            x-show="!showMenu"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <div class="hidden mobile-menu md:hidden flex justify-end">
+          <ul class="md:hidden">
+            <li><a href="./results-page.html" class="block text-sm text-white px-2 py-4 hover:bg-blue-500 transition duration-150">Search Results</a></li>
+            <li><a href="./recipe-page.html" class="block text-sm text-white px-2 py-4 hover:bg-blue-500 transition duration-150">Recipe Page</a></li>
+          </ul>
+        </div>
+      </div>
+      <script>
+        const btn = document.querySelector("button.mobile-menu-button");
+				const menu = document.querySelector(".mobile-menu");
+
+				btn.addEventListener("click", () => {
+					menu.classList.toggle("hidden");
+				});
+      </script>
+    </nav>
 
     <main class="container mx-auto lg:max-w-4xl">
         <div class="text-center bg-gray-100 text-gray-800 py-5 lg:py-10 px-6" id="body-title">
@@ -54,11 +87,11 @@
             <h3 class="text-1xl lg:text-2xl font-bold my-auto">Click on a recipe to begin cooking!</h3>
           </div>
         <div id="featured-recipes container">
-            <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
+            <div id="carousel-captions" class="carousel slide relative" data-bs-ride="carousel">
                 <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
                   <button
                     type="button"
-                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-target="#carousel-captions"
                     data-bs-slide-to="0"
                     class="active"
                     aria-current="true"
@@ -66,13 +99,13 @@
                   ></button>
                   <button
                     type="button"
-                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-target="#carousel-captions"
                     data-bs-slide-to="1"
                     aria-label="Slide 2"
                   ></button>
                   <button
                     type="button"
-                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-target="#carousel-captions"
                     data-bs-slide-to="2"
                     aria-label="Slide 3"
                   ></button>
@@ -115,7 +148,7 @@
                 <button
                   class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
                   type="button"
-                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-target="#carousel-captions"
                   data-bs-slide="prev"
                 >
                   <span class="carousel-control-prev-icon inline-block bg-no-repeat bg-gray-900 rounded-lg bg-opacity-40" aria-hidden="true"></span>
@@ -124,7 +157,7 @@
                 <button
                   class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
                   type="button"
-                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-target="#carousel-captions"
                   data-bs-slide="next"
                 >
                   <span class="carousel-control-next-icon inline-block bg-no-repeat bg-gray-900 rounded-lg bg-opacity-40" aria-hidden="true"></span>
@@ -132,8 +165,11 @@
                 </button>
               </div>
         </div>
-        <!-- this div should house the category buttons -->
-        <div id="categories-div">
+        <div class="text-center bg-gray-100 text-gray-800 py-5 lg:py-10 px-6" id="body-title">
+          <h1 class="text-2xl lg:text-4xl font-bold my-auto">Not appetizing enough?</h1>
+          <h3 class="text-1xl lg:text-2xl font-bold my-auto">More exciting meals below</h3>
+        </div>
+        <div class = "flex flex-wrap mx-auto" id="card-container">
 
         </div>
     </main>
@@ -142,6 +178,7 @@
           <p class="text-1xl lg:text-2xl">Copyright © 2023 - All rights reserved by Team 6</p>
         </div>
       </footer>
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </body>
