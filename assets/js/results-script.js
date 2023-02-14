@@ -39,25 +39,26 @@ function loadPage(){
                 var resultItemImg = document.createElement('img');
                 resultItemImg.setAttribute('src', data.meals[i].strMealThumb);
                 resultItemImg.setAttribute('data-id', data.meals[i].idMeal);
+                resultItemImg.classList.add('w-full', 'h-64', 'object-cover')
 
                 var resultItemName = document.createElement('h3');
                 resultItemName.setAttribute('data-id', data.meals[i].idMeal);
                 resultItemName.textContent = data.meals[i].strMeal;
-                resultItemName.classList.add('my-1', 'pointer-events-none');
+                resultItemName.classList.add('my-1', 'pointer-events-none', 'font-semibold', 'text-center');
 
                 var resultItemTags = document.createElement('label');
                 resultItemTags.setAttribute('data-id', data.meals[i].idMeal);
                 resultItemTags.textContent = data.meals[i].strArea;
-                resultItemTags.classList.add('btn', 'my-1', 'pointer-events-none');
+                resultItemTags.classList.add('btn', 'my-1', 'pointer-events-none', 'align-bottom');
 
                 var resultItemCategory = document.createElement('label');
                 resultItemCategory.setAttribute('data-id', data.meals[i].idMeal);
                 resultItemCategory.textContent = data.meals[i].strCategory;
-                resultItemCategory.classList.add('btn', 'my-1', 'pointer-events-none');
+                resultItemCategory.classList.add('btn', 'my-1', 'pointer-events-none', 'align-bottom');
 
                 var resultListItem = document.createElement('li');
                 resultListItem.setAttribute('data-id', data.meals[i].idMeal);
-                resultListItem.classList.add('card', 'p-8', 'w-96', 'bg-base-100', 'shadow-xl', 'mx-auto', 'bg-gray-200', 'mx-2', 'my-2', 'w-full', 'md:w-1/4');
+                resultListItem.classList.add('card', 'p-4', 'w-full', 'bg-gray-200', 'mx-1', 'my-2', 'md:w-96');
 
                 resultListItem.appendChild(resultItemImg);
                 resultListItem.appendChild(resultItemName);
