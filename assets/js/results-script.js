@@ -20,7 +20,7 @@ function submitSearch(event) {
 
 //dynamically creates result elements for recipes of the searched criteria using data from local storage
 function loadPage(){
-    searchTerm.textContent = "Search Results - " + localStorage.getItem('searchTerm');
+    searchTerm.textContent = "Search Results: " + localStorage.getItem('searchTerm');
     var fetchURL = localStorage.getItem('fetchURL');
     console.log(fetchURL);
     fetch(fetchURL)
@@ -44,16 +44,22 @@ function loadPage(){
                 resultItemName.setAttribute('data-id', data.meals[i].idMeal);
                 resultItemName.textContent = data.meals[i].strMeal;
 
-                var resultItemTags = document.createElement('h4');
+                var resultItemTags = document.createElement('label');
                 resultItemTags.setAttribute('data-id', data.meals[i].idMeal);
-                resultItemTags.textContent = data.meals[i].strArea + ", " + data.meals[i].strCategory;
+                resultItemTags.textContent = data.meals[i].strArea;
+
+                var resultItemCategory = document.createElement('label');
+                resultItemCategory.setAttribute('data-id', data.meals[i].idMeal);
+                resultItemCategory.textContent = data.meals[i].strCategory;
 
                 var resultListItem = document.createElement('li');
                 resultListItem.setAttribute('data-id', data.meals[i].idMeal);
+                resultListItem.classList.add('card', 'p-8', 'w-96', 'bg-base-100', 'shadow-xl', 'mx-auto', 'bg-gray-200', 'mx-2');
 
                 resultListItem.appendChild(resultItemImg);
                 resultListItem.appendChild(resultItemName);
                 resultListItem.appendChild(resultItemTags);
+                resultListItem.appendChild(resultItemCategory);
                 resultsList.appendChild(resultListItem);
                 }
             }
