@@ -16,7 +16,7 @@ function mobileSubmitSearch(event) {
     event.preventDefault();
     const mobileSearchValue = mobileSearchInput.value;
     localStorage.setItem('searchTerm', mobileSearchValue);
-    var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ mobileSearchValue
+    var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ mobileSearchValue;
     console.log(searchURL);
     URLtoLocalStorage(searchURL);
     document.location.replace('./results-page.html');
@@ -30,7 +30,7 @@ function submitSearch(event) {
   event.preventDefault();
   const searchValue = searchInput.value;
   localStorage.setItem('searchTerm', searchValue);
-  var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ searchValue
+  var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ searchValue;
   console.log(searchURL);
   URLtoLocalStorage(searchURL);
   document.location.replace('./results-page.html');

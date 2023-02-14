@@ -1,4 +1,4 @@
-const searchBar = document.querySelectorAll("#search-bar");
+const searchBar = document.querySelector("#search-bar");
 const searchInput = document.querySelector("#search-input");
 var resultsList = document.getElementById('results-list');
 var searchTerm = document.getElementById('search-content');
@@ -25,7 +25,7 @@ function mobileSubmitSearch(event) {
     event.preventDefault();
     const mobileSearchValue = mobileSearchInput.value;
     localStorage.setItem('searchTerm', mobileSearchValue);
-    var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ mobileSearchValue
+    var searchURL = 'https://www.themealdb.com/api/json/v2/9973533/search.php?s='+ mobileSearchValue;
     console.log(searchURL);
     URLtoLocalStorage(searchURL);
     document.location.replace('./results-page.html');
