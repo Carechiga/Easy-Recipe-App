@@ -43,18 +43,21 @@ function loadPage(){
                 var resultItemName = document.createElement('h3');
                 resultItemName.setAttribute('data-id', data.meals[i].idMeal);
                 resultItemName.textContent = data.meals[i].strMeal;
+                resultItemName.classList.add('my-1', 'pointer-events-none');
 
                 var resultItemTags = document.createElement('label');
                 resultItemTags.setAttribute('data-id', data.meals[i].idMeal);
                 resultItemTags.textContent = data.meals[i].strArea;
+                resultItemTags.classList.add('btn', 'my-1', 'pointer-events-none');
 
                 var resultItemCategory = document.createElement('label');
                 resultItemCategory.setAttribute('data-id', data.meals[i].idMeal);
                 resultItemCategory.textContent = data.meals[i].strCategory;
+                resultItemCategory.classList.add('btn', 'my-1', 'pointer-events-none');
 
                 var resultListItem = document.createElement('li');
                 resultListItem.setAttribute('data-id', data.meals[i].idMeal);
-                resultListItem.classList.add('card', 'p-8', 'w-96', 'bg-base-100', 'shadow-xl', 'mx-auto', 'bg-gray-200', 'mx-2');
+                resultListItem.classList.add('card', 'p-8', 'w-96', 'bg-base-100', 'shadow-xl', 'mx-auto', 'bg-gray-200', 'mx-2', 'my-2', 'w-full', 'md:w-1/5');
 
                 resultListItem.appendChild(resultItemImg);
                 resultListItem.appendChild(resultItemName);
