@@ -57,6 +57,5 @@ document.location.replace('./recipe-page.html');
 
 randomMealDisplay();
 
-// temp disabled 
-// searchBar.addEventListener('submit', submitSearch)
+searchBar.addEventListener('submit', submitSearch)
 
