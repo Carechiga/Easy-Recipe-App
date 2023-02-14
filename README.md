@@ -17,6 +17,17 @@ Users are also greeted on the home page with a selection of 10 random recipes fr
 - DaisyUI Tailwind Components
 
 ## Screenshots
+[Home Page](https://i.imgur.com/i0qi6bC.png)
+
+[Search Results](https://i.imgur.com/5O3pMA2.png)
+
+[Recipe Page](https://i.imgur.com/cmCfN4c.png)
+
+[Ingredients](https://i.imgur.com/y5nSgA2.png)
+
+[Instructions](https://i.imgur.com/kAu4hCk.png)
+
+[Nutrition Facts](https://i.imgur.com/rfdF5cp.png)
 
 ## Deployed Application
 You may view the Digital Cookbook [here](https://carechiga.github.io/Easy-Recipe-App/)
