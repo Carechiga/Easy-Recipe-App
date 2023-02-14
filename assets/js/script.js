@@ -92,6 +92,10 @@ function displayCards(data,i){
     title = $("<p>");
     subtitle = $("<p>");
 
+
+// temp disabled 
+searchBar.addEventListener('submit', submitSearch)
+
     card.attr("class", "card w-80 shadow-2xl mx-auto my-8")
     image.attr("data-id",data.meals[i].idMeal)
     image.attr("src",data.meals[i].strMealThumb)
