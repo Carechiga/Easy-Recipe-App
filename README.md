@@ -11,7 +11,7 @@ Users are also greeted on the home page with a selection of 10 random recipes fr
 - Built-in timer on the recipe instructions to help to user keep track of time when cooking
 
 ## Technologies Used
-- TheMealDB API
+- Free Meal API
 - Nutrition API from API Ninjas
 - Tailwind CSS
 - DaisyUI Tailwind Components
