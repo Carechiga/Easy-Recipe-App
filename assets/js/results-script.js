@@ -57,7 +57,7 @@ function loadPage(){
 
                 var resultListItem = document.createElement('li');
                 resultListItem.setAttribute('data-id', data.meals[i].idMeal);
-                resultListItem.classList.add('card', 'p-8', 'w-96', 'bg-base-100', 'shadow-xl', 'mx-auto', 'bg-gray-200', 'mx-2', 'my-2', 'w-full', 'md:w-1/5');
+                resultListItem.classList.add('card', 'p-8', 'w-96', 'bg-base-100', 'shadow-xl', 'mx-auto', 'bg-gray-200', 'mx-2', 'my-2', 'w-full', 'md:w-1/4');
 
                 resultListItem.appendChild(resultItemImg);
                 resultListItem.appendChild(resultItemName);
