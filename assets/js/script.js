@@ -20,7 +20,6 @@ function submitSearch(event) {
 
 var featuredMealImgEl = document.querySelectorAll(".carousel-item img")
 var featuredMealCaptionEl = document.querySelectorAll(".carousel-caption")
-console.log(featuredMealImgEl)
 
 //this function retrieves images and names of random recipes from themealDB API
 function randomMealDisplay(){
@@ -40,6 +39,9 @@ function randomMealDisplay(){
                 featuredMealCaptionEl[i].addEventListener('click',randomMealNavigate)
                 featuredMealImgEl[i].addEventListener('click', randomMealNavigate);
             }
+            for (var i = 3; i < 10;i++){
+                displayCards(data,i)
+            }
    });
 }
 
@@ -49,10 +51,37 @@ function storeMealId(idNumber) {
 }
 
 function randomMealNavigate(event){
+
 var mealID = event.target.getAttribute('data-id');
 storeMealId(mealID);
+console.log(`EVENT: ${event} ${mealID}`)
 
 document.location.replace('./recipe-page.html');
+}
+
+function displayCards(data,i){
+    cardContainer = $("#card-container")
+    card  =$("<div>");
+    image = $("<img>");
+    title = $("<p>");
+    subtitle = $("<p>");
+
+    card.attr("class", "card w-80 shadow-2xl mx-auto my-8")
+    image.attr("data-id",data.meals[i].idMeal)
+    image.attr("src",data.meals[i].strMealThumb)
+    title.attr("class", "card-title mt-4 ml-4")
+    title.attr("data-id",data.meals[i].idMeal)
+    title.text(data.meals[i].strMeal)
+    subtitle.text(`${data.meals[i].strArea} Food`)
+    subtitle.attr("data-id",data.meals[i].idMeal)
+    subtitle.attr("class", "mb-4 ml-4")
+
+    card.append(image);
+    card.append(title);
+    card.append(subtitle);
+    cardContainer.append(card)
+     
+    card.click(randomMealNavigate)
 }
 
 randomMealDisplay();
